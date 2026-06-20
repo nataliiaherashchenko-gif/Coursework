@@ -4,6 +4,7 @@
 #include <limits>
 #include <iomanip>
 #include <stdexcept>
+#include <Windows.h>
 
 using namespace std;
 
@@ -164,7 +165,9 @@ void clearInput() {
 }
 
 int main() {
-    setlocale(LC_ALL, "UKRAINIAN");
+    setlocale(LC_ALL, ".UTF8");
+    SetConsoleCP(65001);
+    SetConsoleOutputCP(65001);
 
     Factory factory;
     factory.addProductToCatalog(Product("Двигун V8", "ENG-001", 150000, 2000000, 5000, 14));
